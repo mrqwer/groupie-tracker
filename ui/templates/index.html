@@ -1,0 +1,73 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Artists List</title>
+    <link rel="stylesheet" href="ui/static/css/style.css">
+</head>
+<body>
+    <h1>Artists List</h1>
+    {{range .Artists}}
+    <div class="artist">
+        <h2><a href="/artist/{{ .ID }}">{{.Name}}</a></h2>
+        <p>Members: {{range .Members}}{{.}}, {{end}}</p>
+        <p>Creation Date: {{.CreationDate}}</p>
+        <p>First Album: {{.FirstAlbum}}</p>
+        <p>Location ID: {{.Location.ID}}</p>
+        <p>Locations: {{range .Location.Locations}}{{.}}, {{end}}</p>
+        <p>Location: {{.Location.Dates}}</p>
+        <p>Concert Date ID: {{.ConcertDate.ID}}</p>
+        <p>Concert Dates: {{range .ConcertDate.Dates}}{{.}}, {{end}}</p>
+        <p>Relation ID: {{ .Relation.ID }}</p>
+        <p>Relation Date Locations: {{.Relation.DatesLocations}}</p>
+    </div>
+    {{end}}
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Artists List</title>
+    <link rel="stylesheet" href="ui/static/css/style.css">
+</head>
+<body>
+    <h1>Artists List</h1>
+    {{range .Artists}}
+    <div class="artist">
+        <h2><a href="/artist/{{ .ID }}">{{.Name}}</a></h2>
+        <p>Members: {{range .Members}}{{.}}, {{end}}</p>
+        <p>Creation Date: {{.CreationDate}}</p>
+        <p>First Album: {{.FirstAlbum}}</p>
+        <p>Location ID: {{.Location.ID}}</p>
+        <p>Locations:</p>
+        <ul>
+            {{range .Location.Locations}}
+            <li>{{.}}</li>
+            {{end}}
+        </ul>
+        <p>Location Dates ID: {{.Location.Dates.ID}}</p>
+        <p>Location Dates:</p>
+        <ul>
+            {{range .Location.Dates.Dates}}
+            <li>{{.}}</li>
+            {{end}}
+        </ul>
+
+        <p>Concert Date ID: {{.ConcertDate.ID}}</p>
+        <p>Concert Dates:</p>
+        <ul>
+            {{range .ConcertDate.Dates}}
+            <li>{{.}}</li>
+            {{end}}
+        </ul>
+        <p>Relation ID: {{ .Relation.ID }}</p>
+        <p>Relation Date Locations:</p>
+        <ul>
+            {{range $key, $value := .Relation.DatesLocations}}
+            <li><strong>{{$key}}:</strong> {{range $value}}{{.}}, {{end}}</li>
+            {{end}}
+        </ul>
+    </div>
+    {{end}}
+</body>
+</html>
