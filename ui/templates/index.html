@@ -35,6 +35,7 @@
     {{range .Artists}}
     <div class="artist">
         <h2><a href="/artist/{{ .ID }}">{{.Name}}</a></h2>
+        <img src="{{ .Image }}" alt="Turs">
         <p>Members: {{range .Members}}{{.}}, {{end}}</p>
         <p>Creation Date: {{.CreationDate}}</p>
         <p>First Album: {{.FirstAlbum}}</p>
