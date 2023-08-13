@@ -7,13 +7,13 @@ A project aims to manupulate and represent data given by the API on the user-fri
 
 #### Get all artists
 
-```http
+```bash
   GET localhost:8080/
 ```
 
 #### Get specific artist
 
-```http
+```bash
   GET /artist/{id}
 ```
 
