@@ -16,24 +16,15 @@ var (
 	tpl *template.Template
 )
 
-// func init() {
-// 	fmt.Println("Starting up.")
-// 	tpl, err := template.ParseGlob("ui/templates/*.html")
-// 	if err != nil {
-// 		log.Fatal("Error loading templates:" + err.Error())
-// 	}
-// 	routes.Tpl = tpl
-// }
-
 func main() {
 	web.Client = &http.Client{Timeout: 10 * time.Second}
 	mux = http.NewServeMux()
 
 	mux.HandleFunc("/", mainHandler)
 	mux.HandleFunc("/artist/", detailHandler)
-	fs := http.FileServer(http.Dir("./ui/static"))
+	fs := http.FileServer(http.Dir("./ui"))
 	mux.Handle("/static/", http.StripPrefix("/static/", fs))
-	tpl, _ = tpl.ParseGlob("ui/templates/*.html")
+	tpl, _ = tpl.ParseGlob("ui/*.html")
 
 	srv = &http.Server{
 		Addr:         fmt.Sprintf(":%s", config.Port),
