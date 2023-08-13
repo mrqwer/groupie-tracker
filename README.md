@@ -1,4 +1,4 @@
-# Groupie-Tracker Project
+# Alem01 - Groupie-Tracker Project
 
 A project aims to manupulate and represent data given by the API on the user-friendly interface 
 
