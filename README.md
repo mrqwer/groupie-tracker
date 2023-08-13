@@ -25,7 +25,7 @@ On the root folder of the project, run:
 
 ## Authors
 
-- [@yeakbay](https://01.alem.school/git/yeakbay)
+- [@mrqwer](https://github.com/mrqwer)
 
 ## API urls
 https://groupietrackers.herokuapp.com/api
